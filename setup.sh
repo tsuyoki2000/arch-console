@@ -76,5 +76,5 @@ sudo systemctl -f enable kmsconvt@tty2
 # 日本語フォント
 # sudo pacman -Sy otf-ipafont でも良い
 ############################################################
-yay -Sy ttf-hackgen
+yay -Sy ttf-hackgen --needed --noconfirm
 
