@@ -1,5 +1,8 @@
 #! /bin/bash
-#
+
+# 一時的に英語化
+export LANG=C
+
 ############################################################
 # /etc/pacman.conf
 # カラー表示とプログレスバーをパックマンにする
@@ -74,4 +77,7 @@ sudo systemctl -f enable kmsconvt@tty2
 # sudo pacman -Sy otf-ipafont でも良い
 ############################################################
 yay -Sy ttf-hackgen --needed --noconfirm
+
+# 再起動
+reboot
 
