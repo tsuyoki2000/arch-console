@@ -85,7 +85,9 @@ sudo systemctl -f enable kmsconvt@tty2
 ############################################################
 # CapsLock->Ctrl
 ############################################################
-green "CapsLock->Ctrl"
+green "##################"
+green "# CapsLock->Ctrl #"
+green "##################"
 sudo mkdir /etc/kmscon
 echo "
 xkb-options=ctrl:nocaps
