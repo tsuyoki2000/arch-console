@@ -14,17 +14,22 @@ export LANG=C
 # カラー表示とプログレスバーをパックマンにする
 # 具体的には「#Color」のコメントを外し、下の行に「ILoveCandy」を追加する
 ############################################################
-green "/etc/pacman.conf"
+green ""
+green "Edit /etc/pacman.conf"
 sudo sh -c "sed -i 's/#Color/Color\'$'\nILoveCandy/g' /etc/pacman.conf"
 
 ############################################################
 # パッケージ更新
 ############################################################
+green ""
+green "System Update"
 sudo pacman -Syu --needed --noconfirm
 
 ############################################################
 # ~/.bashrc
 ############################################################
+green ""
+green "Edit ~/.bashrc"
 echo "
 alias vim='nvim'
 alias ll='ls -l'
@@ -38,18 +43,24 @@ alias autoremove='sudo pacman -Rsc \$(pacman -Qdtq)'
 ############################################################
 # パッケージのインストール
 ############################################################
+green ""
+green "git, neovim, tmux"
 sudo pacman -Sy git neovim tmux --needed --noconfirm
 
 ############################################################
 # /etc/environment
 # テキストエディタに Neovimを設定
 ############################################################
+green ""
+green "Edit /etc/environment"
 ETC_ENV="/etc/environment"
 sudo sh -c "echo EDITOR=nvim >> $ETC_ENV"
 
 ############################################################
 # yay-bin
 ############################################################
+green ""
+green "yay"
 cd
 git clone https://aur.archlinux.org/yay-bin
 cd yay-bin
@@ -63,6 +74,8 @@ rm -rf yay-bin
 # ranger（ranger本体）
 # highlight（ソースコードを色分け表示）
 ############################################################
+green ""
+green "ranger"
 sudo pacman -Sy ranger highlight --needed --noconfirm
 
 # 設定ファイルの作成
@@ -77,6 +90,7 @@ sed -i "s/set preview_images false/set preview_images true/g" $HOME/.config/rang
 ############################################################
 # kmscon
 ############################################################
+green ""
 green "kmscon"
 yay -Sy kmscon --needed --noconfirm
 # tty2 に kmscon を割り当てるようにサービスを起動
@@ -85,9 +99,8 @@ sudo systemctl -f enable kmsconvt@tty2
 ############################################################
 # CapsLock->Ctrl
 ############################################################
-green "##################"
-green "# CapsLock->Ctrl #"
-green "##################"
+green ""
+green "CapsLock->Ctrl"
 sudo mkdir /etc/kmscon
 sudo sh -c "echo xkb-options=ctrl:nocaps >> /etc/kmscon/kmscon.conf"
 
@@ -95,6 +108,8 @@ sudo sh -c "echo xkb-options=ctrl:nocaps >> /etc/kmscon/kmscon.conf"
 # 日本語フォント
 # sudo pacman -Sy otf-ipafont でも良い
 ############################################################
+green ""
+green "ttf-hackgen"
 yay -Sy ttf-hackgen --needed --noconfirm
 
 # 再起動
