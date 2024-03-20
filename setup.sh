@@ -98,5 +98,4 @@ sudo sh -c "echo xkb-options=ctrl:nocaps >> /etc/kmscon/kmscon.conf"
 yay -Sy ttf-hackgen --needed --noconfirm
 
 # 再起動
-reboot
-
+echo "Type reboot"
