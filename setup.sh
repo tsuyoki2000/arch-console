@@ -1,5 +1,11 @@
 #! /bin/bash
 
+# ログ出力用の関数
+GREEN=$(tput setaf 2; tput bold)
+function green() {
+    echo -e "$GREEN$*$NORMAL"
+}
+
 # 一時的に英語化
 export LANG=C
 
@@ -8,6 +14,7 @@ export LANG=C
 # カラー表示とプログレスバーをパックマンにする
 # 具体的には「#Color」のコメントを外し、下の行に「ILoveCandy」を追加する
 ############################################################
+green "/etc/pacman.conf"
 sudo sh -c "sed -i 's/#Color/Color\'$'\nILoveCandy/g' /etc/pacman.conf"
 
 ############################################################
@@ -70,6 +77,7 @@ sed -i "s/set preview_images false/set preview_images true/g" $HOME/.config/rang
 ############################################################
 # kmscon
 ############################################################
+green "kmscon"
 yay -Sy kmscon --needed --noconfirm
 # tty2 に kmscon を割り当てるようにサービスを起動
 sudo systemctl -f enable kmsconvt@tty2
@@ -77,6 +85,7 @@ sudo systemctl -f enable kmsconvt@tty2
 ############################################################
 # CapsLock->Ctrl
 ############################################################
+green "CapsLock->Ctrl"
 echo "
 xkb-options=ctrl:nocaps
 " >> /etc/kmscon/kmscon.conf
