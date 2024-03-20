@@ -89,9 +89,7 @@ green "##################"
 green "# CapsLock->Ctrl #"
 green "##################"
 sudo mkdir /etc/kmscon
-echo "
-xkb-options=ctrl:nocaps
-" >> /etc/kmscon/kmscon.conf
+sudo sh -c "echo xkb-options=ctrl:nocaps >> /etc/kmscon/kmscon.conf"
 
 ############################################################
 # 日本語フォント
