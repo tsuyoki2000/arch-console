@@ -22,8 +22,8 @@ echo "
 alias vim='nvim'
 alias ll='ls -l'
 alias la='ls -lA'
-alias c='clear'
 alias ..='cd ..'
+alias c='clear'
 alias autoremove='sudo pacman -Rsc \$(pacman -Qdtq)'
 (tty | grep 'tty') > /dev/null && export LANG=C
 " >> $HOME/.bashrc
